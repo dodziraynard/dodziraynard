@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+
+    {% load static %}
+    <script src="{% static 'js/ckeditor.js' %}"></script>
+  </head>
+
+  <body>
+    <form action="{% url 'blog:index' %}" method="POST">
+      <input type="hidden" name="id" value="{{article.id}}" />
+      {% csrf_token %}
+      <textarea class="ckeditor" name="text" id="editor" cols="30" rows="10">{{article.text}}</textarea>
+      <br />
+      <br />
+      <br />
+
+      <!-- <div name="balloon" id="balloon"></div> -->
+      <div name="inline" id="inline"></div>
+      <button type="submit">post</button>
+    </form>
+
+    <script>
+      ClassicEditor.create(document.querySelector("#editor"), {
+        codeBlock: {
+          languages: [
+            // Do not render the CSS class for the plain text code blocks.
+            { language: "plaintext", label: "Plain text", class: "" },
+
+            // Use the "php-code" class for PHP code blocks.
+            { language: "php", label: "PHP", class: "php-code" },
+
+            // Use the "js" class for JavaScript code blocks.
+            // Note that only the first ("js") class will determine the language of the block when loading data.
+            {
+              language: "javascript",
+              label: "JavaScript",
+              class: "js javascript js-code",
+            },
+
+            // Python code blocks will have the default "language-python" CSS class.
+            { language: "python", label: "Python" },
+          ],
+        },
+        toolbar: {
+          items: [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "link",
+            "bulletedList",
+            "numberedList",
+            "|",
+            "outdent",
+            "indent",
+            "|",
+            "imageUpload",
+            "blockQuote",
+            "insertTable",
+            "mediaEmbed",
+            "undo",
+            "redo",
+            "codeBlock",
+            "code",
+            "CKFinder",
+          ],
+        },
+        language: "en",
+        licenseKey: "",
+      })
+        .then((editor) => {
+          window.editor = editor;
+        })
+        .catch((error) => {
+          console.error("Oops, something went wrong!");
+          console.error(
+            "Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:"
+          );
+          console.warn("Build id: s22u8iqzybqb-ijin7z70ew4f");
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>

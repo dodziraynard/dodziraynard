@@ -1,0 +1,82 @@
+$colorAccent: rgb(247, 189, 48);
+$colorAccentDarker: rgba(247, 191, 48, 0.788);
+$backgroundColor: rgb(28, 27, 36);
+$backgroundColorLighter: rgb(33, 31, 40);
+$colorWhite: rgba(255, 255, 255, 0.9);
+$colorWhiteDarker: rgba(240, 240, 240, 0.9);
+
+a {
+  text-decoration: none;
+  color: $colorAccentDarker;
+}
+
+a:hover {
+  color: $colorAccent;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $backgroundColor;
+  color: $colorWhite;
+}
+
+pre {
+  background-color: $backgroundColorLighter;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+nav {
+  color: white;
+  font-size: 1.2em;
+  position: relative;
+  height: 0px;
+  overflow: visible;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+  z-index: 3;
+  height: 3em;
+  position: relative;
+
+  ul {
+    position: absolute;
+    right: 10%;
+    top: 0.9em;
+    display: flex;
+    list-style-type: none;
+  }
+}
+
+nav.show {
+  color: #675dda;
+  background-color: $backgroundColorLighter;
+  position: sticky;
+  height: 3em;
+  padding: 1.8em;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+  top: 0px;
+}
+
+form {
+  position: absolute;
+  top: 10px;
+  left: 10%;
+  transform: translateX(-10%);
+}
+
+form {
+  & input[type="search"] {
+    background-color: $backgroundColorLighter;
+    outline: none;
+    border: none;
+    width: 400px;
+    padding: 0.5em;
+    border-radius: 5px;
+    color: white;
+  }
+
+  & button {
+    background-color: $backgroundColorLighter;
+
+  }
+}

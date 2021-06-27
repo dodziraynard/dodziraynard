@@ -1,0 +1,22 @@
+{% extends 'blog/base_template.html' %} {% block content %}
+
+<div class="col-md-8 col-11 mx-auto">
+  <h3>Posts</h3>
+  <div class="row">
+    {% for article in articles %}
+    <div class="col-md-4 my-2">
+      <div class="post-item">
+        <h5>{{article.title}}</h5>
+        <img
+          src="{{article.image.url}}"
+          alt="{{article.title}}"
+          style="max-width: 100%"
+        />
+        <p class="text text-muted">{{article.summary}}</p>
+        <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock %}
+</div>

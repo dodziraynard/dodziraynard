@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAOA,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,KAAK;EACtC,AACE,IADE,CACA,KAAK,CAAA,AAAA,IAAC,CAAK,QAAQ,AAAb,EAAe;IACrB,KAAK,EAAE,KAAK;GACb",
+    "sources": [
+        "blog_style_res.scss"
+    ],
+    "names": [],
+    "file": "blog_style_res.css"
+}

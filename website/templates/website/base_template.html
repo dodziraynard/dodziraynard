@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dodzi Raynard | Website</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/website_style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/website_style_res.css' %}" />
+  </head>
+  <body>
+    <div id="hamburger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+
+    <main>
+      <!-- Sidebar -->
+      <section id="sidebar">
+        <div class="profile">
+          <img src="{% static 'images/design.png' %}" alt="Profile picture" />
+          <p class="mb-0 text text-center">Raynard Dodzi Helegah</p>
+          <p class="m-0 text text-center text-muted">
+            Software Engineer & Developer
+          </p>
+        </div>
+
+        <div class="sidebar-item">
+          <div class="m-0 d-flex justify-content-between">
+            <p class="m-0">Residence:</p>
+            <p class="m-0 text text-muted">Ghana</p>
+          </div>
+          <div class="m-0 d-flex justify-content-between">
+            <p class="m-0">City:</p>
+            <p class="m-0 text text-muted">Accra</p>
+          </div>
+          <div class="m-0 d-flex justify-content-between">
+            <p class="m-0">Education:</p>
+            <p class="m-0 text text-muted">University of Ghana</p>
+          </div>
+        </div>
+
+        <div class="sidebar-item">
+          <p class="m-0 text-primary">Languages</p>
+          <div class="m-0 d-flex flex-wrap">
+            <p class="m-0 mx-1 text text-muted">Python;</p>
+            <p class="m-0 mx-1 text text-muted">Java;</p>
+            <p class="m-0 mx-1 text text-muted">JavaScript;</p>
+            <p class="m-0 mx-1 text text-muted">C/C++;</p>
+            <p class="m-0 mx-1 text text-muted">Kotlin;</p>
+            <p class="m-0 mx-1 text text-muted">Dart;</p>
+            <p class="m-0 mx-1 text text-muted">HTML;</p>
+            <p class="m-0 mx-1 text text-muted">CSS;</p>
+          </div>
+        </div>
+
+        <div class="sidebar-item">
+          <p class="m-0 text-primary">Frameworks</p>
+          <div class="m-0 d-flex flex-wrap">
+            <p class="m-0 mx-1 text text-muted">Django;</p>
+            <p class="m-0 mx-1 text text-muted">Native Android;</p>
+            <p class="m-0 mx-1 text text-muted">Flutter;</p>
+            <p class="m-0 mx-1 text text-muted">React;</p>
+            <p class="m-0 mx-1 text text-muted">Bootstrap;</p>
+          </div>
+        </div>
+
+        <div class="sidebar-item">
+          <p class="m-0 text-primary">Toolkits</p>
+          <div class="m-0 d-flex flex-wrap">
+            <p class="m-0 mx-1 text text-muted">Git (GitHub, GitBucktet);</p>
+            <p class="m-0 mx-1 text text-muted">VS Code;</p>
+            <p class="m-0 mx-1 text text-muted">Nginx;</p>
+            <p class="m-0 mx-1 text text-muted">Vim;</p>
+            <p class="m-0 mx-1 text text-muted">Gunicorn;</p>
+            <p class="m-0 mx-1 text text-muted">Celery;</p>
+            <p class="m-0 mx-1 text text-muted">Redis;</p>
+            <p class="m-0 mx-1 text text-muted">Ubuntu;</p>
+          </div>
+        </div>
+
+        <div class="sidebar-item">
+          <p class="m-0 text-primary">Contact</p>
+          <div class="m-0 d-flex justify-content-between">
+            <p class="m-0">Email:</p>
+            <p class="m-0 text text-muted">
+              <a href="mailto:dodzireynard@gmail.com">dodzireynard@gmail.com</a>
+            </p>
+          </div>
+          <div class="m-0 d-flex justify-content-between">
+            <p class="m-0">Phone:</p>
+            <p class="m-0 text text-muted">
+              <a target="_blank" href="tel:+233249626071">+233 24 962 6071</a>
+            </p>
+          </div>
+          <div class="m-0 d-flex justify-content-between">
+            <p class="m-0">LinkedIn:</p>
+            <p class="m-0 text text-muted">
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/raynard-dodzi-helegah-a46a17169/"
+                >dodziraynard</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main page -->
+      <section id="main">
+        <div class="p-5 intro">
+          <h1 class="col-md-5">Discover my Amazing Portfolio!</h1>
+          <p>
+            &lt;<span class="text-primary">raynard</span>&gt; Built using Django
+            &lt;/<span class="text-primary">raynard</span>&gt;
+          </p>
+
+          <button class="btn btn-warning">EXPLORE NOW</button>
+        </div>
+        <div
+          class="col-md-7 col-sm-12 mx-auto p-3 d-flex justify-content-between"
+        >
+          <a href="{% url 'blog:index' %}" class="mx-1">
+            <div class="d-flex">
+              <p class="m-0 text text-primary mx-1">30+</p>
+              <p class="m-0 text">Posts</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/dodziraynard/" class="mx-1">
+            <div class="d-flex">
+              <p class="m-0 text text-primary mx-1">30+</p>
+              <p class="m-0 text">Repositories</p>
+            </div>
+          </a>
+
+          <a href="" class="mx-1">
+            <div class="d-flex">
+              <p class="m-0 text text-primary mx-1">3</p>
+              <p class="m-0 text">Apps in Store</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="p-3 mx-4">
+          <h4>Recent Posts</h4>
+
+          <div class="row">
+            <div class="col-md-4 my-2">
+              <div class="post-item">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <p class="text text-muted">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Maxime facilis repellendus quae magni eaque nostrum quia quis?
+                  Rem illo assumenda natu.
+                </p>
+                <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
+              </div>
+            </div>
+
+            <div class="col-md-4 my-2">
+              <div class="post-item">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <p class="text text-muted">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Maxime facilis repellendus quae magni eaque nostrum quia quis?
+                  Rem illo assumenda natu.
+                </p>
+                <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
+              </div>
+            </div>
+
+            <div class="col-md-4 my-2">
+              <div class="post-item">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <p class="text text-muted">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Maxime facilis repellendus quae magni eaque nostrum quia quis?
+                  Rem illo assumenda natu.
+                </p>
+                <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
+              </div>
+            </div>
+
+            <div class="col-md-4 my-2">
+              <div class="post-item">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <p class="text text-muted">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Maxime facilis repellendus quae magni eaque nostrum quia quis?
+                  Rem illo assumenda natu.
+                </p>
+                <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <hr />
+        <!-- Footeer -->
+        <footer class="p-3">
+          <p class="text text-muted">
+            &copy;2021 Desinged and Coded by Raynard Dodzi.
+          </p>
+        </footer>
+      </section>
+    </main>
+
+    <script src="{% static 'js/website_app.js' %}"></script>
+  </body>
+</html>

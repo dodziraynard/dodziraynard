@@ -1,0 +1,14 @@
+$colorAccent: rgb(247, 189, 48);
+$colorAccentDarker: rgba(247, 191, 48, 0.788);
+$backgroundColor: rgb(28, 27, 36);
+$backgroundColorLighter: rgb(33, 31, 40);
+$colorWhite: rgba(255, 255, 255, 0.9);
+$colorWhiteDarker: rgba(240, 240, 240, 0.9);
+
+@media only screen and (max-width: 992px) {
+  form {
+    & input[type="search"] {
+      width: 200px;
+    }
+  }
+}
