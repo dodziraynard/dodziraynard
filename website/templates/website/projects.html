@@ -1,0 +1,43 @@
+{% extends 'website/base_template.html' %} {% block content %}
+
+<section id="main">
+  <div class="p-5 intro">
+    <h1 class="col-md-5">My Projects!</h1>
+    <p>
+      &lt;<span class="text-primary">languages</span>&gt; Python, JavaScript,
+      Java, Kotlin &lt;/<span class="text-primary">languages</span>&gt;
+    </p>
+
+    <a href="{% url 'website:index' %}"
+      ><button class="btn btn-warning">HOME</button></a
+    >
+  </div>
+
+  <div class="p-3 mx-4">
+    <h4>Project</h4>
+
+    <div class="row">
+      {% for project in projects %}
+      <div class="col-md-4 my-2">
+        <div class="post-item">
+          <p>{{project.name}}</p>
+          <p class="text text-muted">{{project.description|safe}}</p>
+          {% if project.github_link %}
+          <a href="{{project.github_link}}" class="text-primary">GitHub</a>
+          {% endif %} {% if project.preview_link %}
+          <a href="{{project.preview_link}}" class="text-primary"> | Preview</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <hr />
+  <!-- Footeer -->
+  <footer class="p-3">
+    <p class="text text-muted">&copy; 2021 Site by Raynard Dodzi.</p>
+  </footer>
+</section>
+
+{% endblock %}

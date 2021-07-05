@@ -10,6 +10,18 @@
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
+      input[name="title"] {
+        padding: 1em 0em;
+        font-size: 2em;
+        outline: none;
+        border: none;
+        width: 100%;
+      }
+
+      .main {
+        margin: 1% auto;
+        width: 80%;
+      }
     </style>
 
     {% load static %}
@@ -17,18 +29,33 @@
   </head>
 
   <body>
-    <form action="{% url 'blog:index' %}" method="POST">
-      <input type="hidden" name="id" value="{{article.id}}" />
-      {% csrf_token %}
-      <textarea class="ckeditor" name="text" id="editor" cols="30" rows="10">{{article.text}}</textarea>
-      <br />
-      <br />
-      <br />
+    <section class="main">
+      <form action="{% url 'blog:store_article' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{article.id}}" />
 
-      <!-- <div name="balloon" id="balloon"></div> -->
-      <div name="inline" id="inline"></div>
-      <button type="submit">post</button>
-    </form>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Click to enter title"
+          value="{{article.title}}"
+        />
+
+        <textarea class="ckeditor" name="text" id="editor" cols="30" rows="10">
+{{article.text}}
+</textarea
+        >
+
+        <br />
+        <br />
+        <br />
+
+        <button type="submit">Post</button>
+        <label for="publisedh">Published</label>
+        <input type="checkbox" name="published" id="published" {% if article.published %} checked {% endif %}>
+      </form>
+    </section>
 
     <script>
       ClassicEditor.create(document.querySelector("#editor"), {

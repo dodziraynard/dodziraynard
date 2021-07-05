@@ -25,11 +25,12 @@
 
   <body>
     <nav class="mb-3">
-      <form action="" method="get">
+      <form action="{% url 'blog:index' %}" method="get">
         <input
           type="search"
           name="query"
           id="query"
+          value="{{query}}"
           placeholder="Search posts ..."
         />
         <button class="btn" type="submit">

@@ -1,6 +1,67 @@
-{% extends 'website/base_template.html' %}
+{% extends 'website/base_template.html' %} {% block content %}
 
-{% block content %}
+<section id="main">
+  <div class="p-5 intro">
+    <h1 class="col-md-5">Discover my Amazing Portfolio!</h1>
+    <p>
+      &lt;<span class="text-primary">raynard</span>&gt; Built using Django
+      &lt;/<span class="text-primary">raynard</span>&gt;
+    </p>
 
+    <a href="{% url 'website:projects' %}"
+      ><button class="btn btn-warning">PROJECTS</button></a
+    >
+  </div>
+  <div class="col-md-7 col-sm-12 mx-auto p-3 d-flex justify-content-between">
+    <a href="{% url 'blog:index' %}" class="mx-1">
+      <div class="d-flex">
+        <p class="m-0 text text-primary mx-1">30+</p>
+        <p class="m-0 text">Posts</p>
+      </div>
+    </a>
+
+    <a href="https://github.com/dodziraynard/" class="mx-1">
+      <div class="d-flex">
+        <p class="m-0 text text-primary mx-1">30+</p>
+        <p class="m-0 text">Repositories</p>
+      </div>
+    </a>
+
+    <a href="https://play.google.com/store/apps/details?id=com.idea.mydiary" class="mx-1">
+      <div class="d-flex">
+        <p class="m-0 text text-primary mx-1">3</p>
+        <p class="m-0 text">Apps in Store</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="p-3 mx-4">
+    <h4>Recent Posts</h4>
+
+    <div class="row">
+      {% for article in articles %}
+      <div class="col-md-4 my-2">
+        <a href="{% url 'blog:article' article.slug article.id %}">
+          <div class="post-item">
+            <p>{{article.title}}</p>
+            <p class="text text-muted">{{article.summary}}</p>
+            <a href="{% url 'blog:article' article.slug article.id %}" class="text-primary"
+              >Read more >></a
+            >
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <hr />
+  <!-- Footeer -->
+  <footer class="p-3">
+    <p class="text text-muted">
+      &copy; 2021 Site by Raynard Dodzi.
+    </p>
+  </footer>
+</section>
 
 {% endblock %}

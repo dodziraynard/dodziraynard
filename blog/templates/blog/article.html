@@ -3,7 +3,7 @@
 <div class="col-md-8 col-11 mx-auto">
   <h2 class="mb-5">
     {% if request.user.is_staff %}
-    <small><a href="{% url 'blog:edit_article' %}">Edit</a></small>
+    <small><a href="{% url 'blog:edit_article' article.slug article.id %}">Edit</a></small>
     {% endif %}
   </h2>
 
@@ -12,76 +12,36 @@
 
 <br />
 <br />
+
+{% if articles %}
 <div class="col-md-8 col-11 mx-auto">
   <h3>Related Posts</h3>
   <div class="row">
     <div class="col-md-4 my-2">
-      <div class="post-item">
-        <h5>Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
-        <img
-          src="/static/images/bg2.jpg"
-          alt="post title"
-          style="max-width: 100%"
-        />
-        <p class="text text-muted">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime
-          facilis repellendus quae magni eaque nostrum quia quis? Rem illo
-          assumenda natu.
-        </p>
-        <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
-      </div>
-    </div>
 
-    <div class="col-md-4 my-2">
-      <div class="post-item">
-        <h5>Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
-        <img
-          src="/static/images/bg2.jpg"
-          alt="post title"
-          style="max-width: 100%"
-        />
-        <p class="text text-muted">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime
-          facilis repellendus quae magni eaque nostrum quia quis? Rem illo
-          assumenda natu.
-        </p>
-        <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
-      </div>
-    </div>
-
-    <div class="col-md-4 my-2">
-      <div class="post-item">
-        <h5>Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
-        <img
-          src="/static/images/bg2.jpg"
-          alt="post title"
-          style="max-width: 100%"
-        />
-        <p class="text text-muted">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime
-          facilis repellendus quae magni eaque nostrum quia quis? Rem illo
-          assumenda natu.
-        </p>
-        <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
-      </div>
-    </div>
-
-    <div class="col-md-4 my-2">
-      <div class="post-item">
-        <h5>Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
-        <img
-          src="/static/images/bg2.jpg"
-          alt="post title"
-          style="max-width: 100%"
-        />
-        <p class="text text-muted">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime
-          facilis repellendus quae magni eaque nostrum quia quis? Rem illo
-          assumenda natu.
-        </p>
-        <a href="{% url 'blog:article' %}" class="text-primary">Read more >></a>
-      </div>
+      {% for article in articles %}
+      <a
+        href="{% url 'blog:article' article.slug article.id %}"
+        class="text-primary"
+      >
+        <div class="post-item">
+          <h5>{{article.title}}</h5>
+          <img
+            src="/static/images/bg2.jpg"
+            alt="post title"
+            style="max-width: 100%"
+          />
+          <p class="text text-muted">{{article.summary}}</p>
+          <a
+            href="{% url 'blog:article' article.slug article.id %}"
+            class="text-primary"
+            >Read more >></a
+          >
+        </div>
+      </a>
+      {% endfor %}
     </div>
   </div>
 </div>
+{% endif %}
 {% endblock %}
