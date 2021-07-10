@@ -21,3 +21,10 @@ class ProjectImage(models.Model):
 
     def __str__(self) -> str:
         return self.project.title
+
+class TnC(models.Model):
+    title = models.CharField(max_length=200)
+    text = CKEditor5Field()
+
+    def __str__(self) -> str:
+        return self.title
