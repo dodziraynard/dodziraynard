@@ -1,1 +1,2 @@
 django-ckeditor-5>=0.0.14
+Django==3.2
