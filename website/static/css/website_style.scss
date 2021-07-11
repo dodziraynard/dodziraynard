@@ -26,9 +26,9 @@ body {
   display: none;
 
   [class*="line"] {
-    width: 1.5em;
+    width: 2em;
     height: 0.2em;
-    margin: 0.3em;
+    margin: 0.5em 0.2em;
     background-color: $colorWhiteDarker;
     opacity: 1;
     transition: all 0.3s ease-in-out;
@@ -55,7 +55,6 @@ main {
   width: 20%;
   background-color: $backgroundColor;
   min-height: 100vh;
-  overflow: scroll;
 
   .profile {
     background-color: $backgroundColorLighter;

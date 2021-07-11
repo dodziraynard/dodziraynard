@@ -3,7 +3,11 @@
 <div class="col-md-8 col-11 mx-auto">
   <h2 class="mb-5">
     {% if request.user.is_staff %}
-    <small><a href="{% url 'blog:edit_article' article.slug article.id %}">Edit</a></small>
+    <small
+      ><a href="{% url 'blog:edit_article' article.slug article.id %}"
+        >Edit</a
+      ></small
+    >
     {% endif %}
   </h2>
 
@@ -18,7 +22,6 @@
   <h3>Related Posts</h3>
   <div class="row">
     <div class="col-md-4 my-2">
-
       {% for article in articles %}
       <a
         href="{% url 'blog:article' article.slug article.id %}"
@@ -43,5 +46,8 @@
     </div>
   </div>
 </div>
-{% endif %}
-{% endblock %}
+{% else %}
+
+<p class="text text info">No items found</p>
+
+{% endif %} {% endblock %}

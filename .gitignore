@@ -133,3 +133,4 @@ dmypy.json
 uploads
 **/generated_sheets/**
 staticfiles
+ug
