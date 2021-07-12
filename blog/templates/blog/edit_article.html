@@ -38,6 +38,7 @@
           type="text"
           name="title"
           id="title"
+          required
           placeholder="Click to enter title"
           value="{{article.title}}"
         />
@@ -51,9 +52,10 @@
         <br />
         <br />
 
-        <button type="submit">Post</button>
-        <label for="publisedh">Published</label>
+        <label for="published">Published</label>
         <input type="checkbox" name="published" id="published" {% if article.published %} checked {% endif %}>
+
+        <button type="submit">Post</button>
       </form>
 
       <p><a href="{% url 'blog:index' %}">Posts</a></p>

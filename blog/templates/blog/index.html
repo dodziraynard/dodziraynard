@@ -3,6 +3,7 @@
 <div class="col-md-8 col-11 mx-auto">
   <h3>Posts</h3>
   <div class="row">
+    {% if articles %} 
     {% for article in articles %}
     <div class="col-md-4 my-2">
       <a href="{% url 'blog:article' article.slug article.id %}">
@@ -16,7 +17,7 @@
           <p class="text text-muted">{{article.summary}}</p>
 
           <div class="d-flex justify-content-between">
-            <p >
+            <p>
               <a
                 href="{% url 'blog:article' article.slug article.id %}"
                 class="text-primary"
@@ -37,7 +38,10 @@
         </div>
       </a>
     </div>
-    {% endfor %}
+    {% endfor %} 
+    {% else %}
+    <p class="text text info">No items found</p>
+    {% endif %}
   </div>
   {% endblock %}
 </div>
