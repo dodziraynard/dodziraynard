@@ -1,0 +1,5 @@
+{% extends "pages/base_template.html" %}
+{% block page_title %}{{page.title}}{% endblock %}
+{% block document_title %}{{page.title}}{% endblock %}
+
+{% block content %} {{page.content|safe}} {% endblock %}
