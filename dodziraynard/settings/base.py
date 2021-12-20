@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'website.apps.WebsiteConfig',
     'pages.apps.PagesConfig',
+    'amexpert.apps.AmexpertConfig',
 ]
 
 MIDDLEWARE = [
