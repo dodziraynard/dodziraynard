@@ -9,7 +9,12 @@ class IndexView(View):
     template_name = "amexpert/index.html"
 
     def get(self, request):
-        return render(request, self.template_name)
+        event = Event.objects.filter(
+            timestamp__gte=timezone.now()).order_by("timestamp").first()
+        context = {
+            "event": event,
+        }
+        return render(request, self.template_name, context)
 
 
 class EventsView(View):
