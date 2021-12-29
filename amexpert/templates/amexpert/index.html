@@ -1,4 +1,12 @@
 {% extends 'amexpert/base_template.html' %}
+
+{% if event.registration_link %}
+{% block event_registration %}
+<a class="lgx-btn lgx-btn-red" href="{{event.registration_link}}"><span>Register</span></a>
+{% endblock %}
+{% endif %}
+
+
 {% load static %}
 
 {% block content %}
@@ -63,9 +71,11 @@
                                 </div>
 
                                 <div class="section-btn-area">
-                                    <a class="lgx-btn" href="about.html"><span>More About</span></a>
-                                    <a class="lgx-btn lgx-btn-red lgx-scroll"
-                                        href="#lgx-registration"><span>Register</span></a>
+                                    <a class="lgx-btn" href="/"><span>More About</span></a>
+                                    {% if event.registration_link %}
+                                    <a class="lgx-btn lgx-btn-red"
+                                        href="{{event.registration_link}}"><span>Register</span></a>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -129,7 +139,7 @@
                 </div>
                 <!--//.ROW-->
                 <div class="section-btn-area">
-                    <a class="lgx-btn lgx-btn-red lgx-btn-big" href="speakers.html"><span>Become A
+                    <a class="lgx-btn lgx-btn-red lgx-btn-big" href="mailto:drhelegah@st.ug.edu.gh"><span>Become A
                             Speaker</span></a>
                 </div>
             </div>
@@ -192,63 +202,29 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for post in posts %}
                     <div class="col-xs-12 col-sm-6 col-md-4">
                         <div class="lgx-single-news">
                             <figure>
-                                <a href="news-single.html"><img src="{% static 'assets/img/news/news1.jpg' %}"
-                                        alt=""></a>
+                                <a href="{% url 'amexpert:post_detail'  post.id post.slug %}"><img
+                                        src="{{post.image.url}}" alt="{{blog.title}}"></a>
                             </figure>
                             <div class="single-news-info">
                                 <div class="meta-wrapper">
-                                    <span>April 25, 2021</span>
-                                    <span>by <a href="#">Riazsagar</a></span>
-                                    <span><a href="#">Design</a></span>
+                                    <span>{{post.created_at|date}}</span>
+                                    <span>by <a>{{post.author}}</a></span>
                                 </div>
-                                <h3 class="title"><a href="news-single.html">Brooklyn Beta was the most
-                                        important conferen best tristique</a></h3>
+                                <h3 class="title"><a
+                                        href="{% url 'amexpert:post_detail'  post.id post.slug %}">{{post.title}}</a>
+                                </h3>
                                 <a class="lgx-btn lgx-btn-white lgx-btn-sm" href="#"><span>Read More</span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="lgx-single-news">
-                            <figure>
-                                <a href="news-single.html"><img src="{% static 'assets/img/news/news3.jpg' %}"
-                                        alt=""></a>
-                            </figure>
-                            <div class="single-news-info">
-                                <div class="meta-wrapper">
-                                    <span>April 25, 2021</span>
-                                    <span>by <a href="#">Riazsagar</a></span>
-                                    <span><a href="#">Design</a></span>
-                                </div>
-                                <h3 class="title"><a href="news-single.html">Brooklyn Beta was the most
-                                        important conferen best tristique</a></h3>
-                                <a class="lgx-btn lgx-btn-white lgx-btn-sm" href="#"><span>Read More</span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="lgx-single-news">
-                            <figure>
-                                <a href="news-single.html"><img src="{% static 'assets/img/news/news2.jpg' %}"
-                                        alt=""></a>
-                            </figure>
-                            <div class="single-news-info">
-                                <div class="meta-wrapper">
-                                    <span>April 25, 2021</span>
-                                    <span>by <a href="#">Riazsagar</a></span>
-                                    <span><a href="#">Design</a></span>
-                                </div>
-                                <h3 class="title"><a href="news-single.html">Brooklyn Beta was the most
-                                        important conferen best tristique</a></h3>
-                                <a class="lgx-btn lgx-btn-white lgx-btn-sm" href="#"><span>Read More</span></a>
-                            </div>
-                        </div>
-                    </div>
+                    {%endfor%}
                 </div>
                 <div class="section-btn-area">
-                    <a class="lgx-btn" href="news.html">View More Blogs</a>
+                    <a class="lgx-btn" href="">View More Blogs</a>
                 </div>
             </div><!-- //.CONTAINER -->
         </div><!-- //.INNER -->

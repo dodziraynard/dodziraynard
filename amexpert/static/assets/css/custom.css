@@ -1,0 +1,11 @@
+.blog-section {
+  margin-top: 10em;
+  width: 50%;
+  margin: 10em auto;
+}
+
+@media screen and (max-width: 768px) {
+  .blog-section {
+    width: 90%;
+  }
+}

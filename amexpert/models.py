@@ -1,5 +1,7 @@
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
+from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class Speaker(models.Model):
@@ -52,10 +54,11 @@ class Event(models.Model):
     timestamp = models.DateTimeField()
     sponsors = models.ManyToManyField(Sponser)
     speakers = models.ManyToManyField(Speaker)
+    slug = models.CharField(max_length=250)
+    registration_link = models.URLField(blank=True, null=True)
+    visible = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_created=True)
     update_at = models.DateTimeField(auto_now=True)
-    slug = models.CharField(max_length=250)
-    visible = models.BooleanField(default=True)
 
     def save(self, **kwargs) -> None:
         self.slug = "-".join(self.title.lower().split())
@@ -63,3 +66,26 @@ class Event(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+
+class Post(models.Model):
+    title = models.CharField('Title', max_length=200)
+    image = models.ImageField(upload_to="uploads/images/articles")
+    abstract = models.TextField()
+    tags = models.CharField(max_length=300, default="")
+    published = models.BooleanField(default=False)
+    slug = models.CharField(max_length=300, unique=True)
+    content = CKEditor5Field('Text', config_name='extends')
+    created_at = models.DateTimeField(default=timezone.now)
+    update_at = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(User,
+                               null=True,
+                               blank=True,
+                               on_delete=models.CASCADE)
+
+    def save(self) -> None:
+        self.slug = "-".join(self.title.lower().split())
+        return super().save()
+
+    def __str__(self) -> str:
+        return f"{self.id}. {self.title}"

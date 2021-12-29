@@ -1,0 +1,14 @@
+{% extends 'amexpert/base_template.html' %}
+{% block navclass %} menu-onscroll{%endblock%}
+{% block pagetitle %}{{post.title}}{%endblock%}
+
+
+{% block navmenus %}
+<li><a href="/">Home</a></li>
+{%endblock%}
+
+{% block content %}
+<section class="blog-section">
+    {{post.content|safe}}
+</section>
+{% endblock %}

@@ -8,5 +8,8 @@ urlpatterns = [
     path("events", views.EventsView.as_view(), name="events"),
     path("events/<str:event_id>/<str:slug>",
          views.EventDetailView.as_view(),
-         name="detail_details"),
+         name="event_detail"),
+    path("post/<str:post_id>/<str:slug>",
+         views.PostDetailView.as_view(),
+         name="post_detail"),
 ]
