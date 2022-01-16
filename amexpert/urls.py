@@ -6,6 +6,9 @@ app_name = "amexpert"
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
     path("amexpert", views.IndexView.as_view(), name="amexpert"),
+    path("new-membership",
+         views.NewMemberShipView.as_view(),
+         name="new_membership"),
     path("events", views.EventsView.as_view(), name="events"),
     path("events/<str:event_id>/<str:slug>",
          views.EventDetailView.as_view(),

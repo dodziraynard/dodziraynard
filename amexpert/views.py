@@ -59,3 +59,10 @@ class PostDetailView(View):
         post = get_object_or_404(Post, id=post_id)
         context = {"post": post}
         return render(request, self.template_name, context)
+
+
+class NewMemberShipView(View):
+    template_name = "amexpert/website/new_membership.html"
+
+    def get(self, request):
+        return render(request, self.template_name)
