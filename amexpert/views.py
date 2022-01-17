@@ -1,9 +1,10 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.views import View
 from django.utils import timezone
 
-from amexpert.models import Event, Post
-
+from amexpert.models import Event, Post, Member
+from amexpert.forms import NewMemberForm
 
 class IndexView(View):
     template_name = "amexpert/website/index.html"
@@ -61,8 +62,35 @@ class PostDetailView(View):
         return render(request, self.template_name, context)
 
 
+class MemberShipCreated(View):
+    template_name = "amexpert/website/membership_created.html"
+    def get(self, request):
+        return render(request, self.template_name)
+
+
 class NewMemberShipView(View):
     template_name = "amexpert/website/new_membership.html"
 
     def get(self, request):
-        return render(request, self.template_name)
+        form = NewMemberForm()
+
+        return render(request, self.template_name, {'form': form})
+    def post(self, request, *args, **kwargs):
+        form = NewMemberForm(request.POST)
+           # check whether it's valid:
+        if form.is_valid():
+           # process the data in form.cleaned_data as required
+           # ...
+           # redirect to a new URL:
+           member = Member(
+               fullname = form.cleaned_data['fullname'],
+               email = form.cleaned_data['email'],
+               linkedin = form.cleaned_data['linkedin'],
+               github = form.cleaned_data['github'],
+               website = form.cleaned_data['website'],
+               bio = form.cleaned_data['bio'],
+               pronouns = form.cleaned_data['pronouns']
+           )
+           member.save()
+           
+           return HttpResponseRedirect('/membership-created')

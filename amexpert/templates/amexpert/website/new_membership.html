@@ -2,10 +2,56 @@
 
 {% block content %}
 <main id="main">
-  <section class="col-md-8 mx-auto">
-    <h1 class="text text-center">New Registration</h1>
-
-
+  <section class="col-md-8 mx-auto justify-content-center">
+    <h1 class="text text-center mt-2">New Registration</h1>
+    {% load crispy_forms_tags %}  
+    <div class="container mt-5">
+      <form action="/new-membership" method="POST" class="row justify-content-center" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="col-lg-8 form-group">
+          <div class=" row">
+            <div class="col-lg-3 form-group">
+                {{ form.pronouns.errors }}
+                {{ form.pronouns | as_crispy_field }}
+            </div>
+            <div class="col-lg-9 form-group">
+              {{ form.fullname.errors }}
+              {{ form.fullname | as_crispy_field }}
+            </div>
+          </div>
+           
+        </div>
+        <div class="col-lg-8">
+          {{ form.email.errors }}
+          {{ form.email | as_crispy_field }}
+           
+        </div>
+        <div class="col-lg-8">
+          {{ form.linkedin.errors }}
+          {{ form.linkedin | as_crispy_field}}
+           
+        </div>
+        <div class="col-lg-8">
+          {{ form.github.errors }}
+          {{ form.github | as_crispy_field}}
+           
+        </div>
+        <div class="col-lg-8">
+          {{ form.website.errors }}
+          {{ form.website | as_crispy_field }}
+           
+        </div>
+        <div class="col-lg-8">
+          {{ form.bio.errors }}
+          {{ form.bio | as_crispy_field}}
+           
+        </div>
+        <div class="col-lg-8">
+          <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit" />
+        </div>
+      </form>
+    </div>
   </section>
 </main>
 

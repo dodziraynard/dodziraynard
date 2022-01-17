@@ -89,3 +89,23 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return f"{self.id}. {self.title}"
+    
+class Member(models.Model):
+    fullname = models.CharField(max_length=200)
+    email = models.EmailField(null=False, max_length=200)
+    linkedin = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
+    bio = CKEditor5Field()
+    pronouns = models.CharField(max_length=100, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False,)
+    update_at = models.DateTimeField(auto_now=True, null=False)
+    visible = models.BooleanField(default=True)
+    slug = models.CharField(max_length=250)
+
+    def save(self, **kwargs) -> None:
+        self.slug = "-".join(self.fullname.lower().split())
+        return super().save(**kwargs)
+
+    def __str__(self) -> str:
+        return self.fullname
