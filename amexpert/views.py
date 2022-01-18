@@ -76,21 +76,13 @@ class NewMemberShipView(View):
 
         return render(request, self.template_name, {'form': form})
     def post(self, request, *args, **kwargs):
-        form = NewMemberForm(request.POST)
+        form = NewMemberForm(request.POST, request.FILES)
            # check whether it's valid:
         if form.is_valid():
            # process the data in form.cleaned_data as required
            # ...
            # redirect to a new URL:
-           member = Member(
-               fullname = form.cleaned_data['fullname'],
-               email = form.cleaned_data['email'],
-               linkedin = form.cleaned_data['linkedin'],
-               github = form.cleaned_data['github'],
-               website = form.cleaned_data['website'],
-               bio = form.cleaned_data['bio'],
-               pronouns = form.cleaned_data['pronouns']
-           )
-           member.save()
+           form.save()
            
            return HttpResponseRedirect('/membership-created')
+        return render(request, self.template_name, {'form': form})
