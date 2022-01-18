@@ -43,6 +43,11 @@
            
         </div>
         <div class="col-lg-8">
+          {{ form.photo.errors }}
+          {{ form.photo | as_crispy_field }}
+           
+        </div>
+        <div class="col-lg-8">
           {{ form.bio.errors }}
           {{ form.bio | as_crispy_field}}
            
