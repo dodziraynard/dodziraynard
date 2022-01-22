@@ -1,8 +1,9 @@
 from random import choice
-from django.db import models
-from django_ckeditor_5.fields import CKEditor5Field
-from django.utils import timezone
+
 from django.contrib.auth.models import User
+from django.db import models
+from django.utils import timezone
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class Speaker(models.Model):

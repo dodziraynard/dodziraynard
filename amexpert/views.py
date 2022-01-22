@@ -1,10 +1,11 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from django.views import View
 from django.utils import timezone
+from django.views import View
 
-from amexpert.models import Event, Post, Member
 from amexpert.forms import NewMemberForm
+from amexpert.models import Event, Member, Post
+
 
 class IndexView(View):
     template_name = "amexpert/website/index.html"
