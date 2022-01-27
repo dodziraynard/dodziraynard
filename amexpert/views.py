@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
+from .utils import SendDynamic
 from django.views import View
 
 from amexpert.forms import NewMemberForm
@@ -82,10 +83,18 @@ class NewMemberShipView(View):
         form = NewMemberForm(request.POST, request.FILES)
         # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
+           # process the data in form.cleaned_data as required
+            form.save()
             # ...
             # redirect to a new URL:
-            form.save()
-
+            #    form.save()
+            fullname = form.cleaned_data['fullname']
+            #    subject= 'Thank you for your interest in joining AmExpert'
+            #    message = 'Hi '+ fullname+ ',\nThank you for your interest in joining AmExpert. To complete the registration process, kindly follow these steps:\n\n1. Peruse our code of conduct at https://dodziraynard.me/pages/1/code-of-conduct\n2. Join our telegram page at https://t.me/+OvVzGg7OsQ83ZmVk\n\nIf you need any assistance, send your queries to dodzireynard@gmail.com or visit our page https://dodziraynard.me \n\nThanks you.\n\nAll the best,\nTeam AmExpert'
+            #    email_from = settings.EMAIL_HOST_USER
+            recipient_list = [form.cleaned_data['email']]    
+            SendDynamic('drhelegah@st.ug.edu.gh', recipient_list, fullname)
+            #    send_mail( subject, message, email_from, recipient_list, fail_silently=False )    
+           
             return HttpResponseRedirect('/membership-created')
         return render(request, self.template_name, {'form': form})
