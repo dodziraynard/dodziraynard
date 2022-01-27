@@ -1,10 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
-<<<<<<< HEAD
 from .utils import SendDynamic
-=======
->>>>>>> e8e702befcb93b40fe474faa659392097f7da81f
 from django.views import View
 
 from amexpert.forms import NewMemberForm

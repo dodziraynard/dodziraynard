@@ -2,9 +2,5 @@ django-ckeditor-5>=0.0.14,<1
 Django>=3.2.5,<4
 pillow>=9,<10
 django-crispy-forms>=1.13.0
-<<<<<<< HEAD
 django-environ>=0.8.1
 crispy-bootstrap5>=0.6,<1
-=======
-crispy-bootstrap5>=0.6,<1
->>>>>>> e8e702befcb93b40fe474faa659392097f7da81f
