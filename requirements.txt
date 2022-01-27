@@ -3,3 +3,4 @@ Django>=3.2.5
 pillow>=8.3.2
 django-crispy-forms>=1.13.0
 crispy-bootstrap>=5-0.6
+django-environ>=0.8.1
