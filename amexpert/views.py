@@ -22,18 +22,18 @@ class IndexView(View):
         return render(request, self.template_name, context)
 
 
-# class IndexView(View):
-#     template_name = "amexpert/events/index.html"
+class NextEventView(View):
+    template_name = "amexpert/events/index.html"
 
-#     def get(self, request):
-#         event = Event.objects.filter(
-#             timestamp__gte=timezone.now()).order_by("timestamp").first()
-#         posts = Post.objects.filter(published=True)
-#         context = {
-#             "event": event,
-#             "posts": posts,
-#         }
-#         return render(request, self.template_name, context)
+    def get(self, request):
+        event = Event.objects.filter(
+            timestamp__gte=timezone.now()).order_by("timestamp").first()
+        posts = Post.objects.filter(published=True)
+        context = {
+            "event": event,
+            "posts": posts,
+        }
+        return render(request, self.template_name, context)
 
 
 class EventsView(View):
@@ -66,6 +66,7 @@ class PostDetailView(View):
 
 class MemberShipCreated(View):
     template_name = "amexpert/website/membership_created.html"
+
     def get(self, request):
         return render(request, self.template_name)
 
@@ -77,21 +78,23 @@ class NewMemberShipView(View):
         form = NewMemberForm()
 
         return render(request, self.template_name, {'form': form})
+
     def post(self, request, *args, **kwargs):
         form = NewMemberForm(request.POST, request.FILES)
-           # check whether it's valid:
+        # check whether it's valid:
         if form.is_valid():
            # process the data in form.cleaned_data as required
-           # ...
-           # redirect to a new URL:
-        #    form.save()
-           fullname = form.cleaned_data['fullname']
-        #    subject= 'Thank you for your interest in joining AmExpert'
-        #    message = 'Hi '+ fullname+ ',\nThank you for your interest in joining AmExpert. To complete the registration process, kindly follow these steps:\n\n1. Peruse our code of conduct at https://dodziraynard.me/pages/1/code-of-conduct\n2. Join our telegram page at https://t.me/+OvVzGg7OsQ83ZmVk\n\nIf you need any assistance, send your queries to dodzireynard@gmail.com or visit our page https://dodziraynard.me \n\nThanks you.\n\nAll the best,\nTeam AmExpert'
-        #    email_from = settings.EMAIL_HOST_USER
-           recipient_list = [form.cleaned_data['email']]    
-           SendDynamic('drhelegah@st.ug.edu.gh', recipient_list, fullname)
-        #    send_mail( subject, message, email_from, recipient_list, fail_silently=False )    
+            form.save()
+            # ...
+            # redirect to a new URL:
+            #    form.save()
+            fullname = form.cleaned_data['fullname']
+            #    subject= 'Thank you for your interest in joining AmExpert'
+            #    message = 'Hi '+ fullname+ ',\nThank you for your interest in joining AmExpert. To complete the registration process, kindly follow these steps:\n\n1. Peruse our code of conduct at https://dodziraynard.me/pages/1/code-of-conduct\n2. Join our telegram page at https://t.me/+OvVzGg7OsQ83ZmVk\n\nIf you need any assistance, send your queries to dodzireynard@gmail.com or visit our page https://dodziraynard.me \n\nThanks you.\n\nAll the best,\nTeam AmExpert'
+            #    email_from = settings.EMAIL_HOST_USER
+            recipient_list = [form.cleaned_data['email']]    
+            SendDynamic('drhelegah@st.ug.edu.gh', recipient_list, fullname)
+            #    send_mail( subject, message, email_from, recipient_list, fail_silently=False )    
            
-           return HttpResponseRedirect('/membership-created')
+            return HttpResponseRedirect('/membership-created')
         return render(request, self.template_name, {'form': form})
