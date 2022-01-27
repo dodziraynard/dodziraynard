@@ -4,3 +4,4 @@ pillow>=9,<10
 django-crispy-forms>=1.13.0
 django-environ>=0.8.1
 crispy-bootstrap5>=0.6,<1
+sendgrid==6.9.3
