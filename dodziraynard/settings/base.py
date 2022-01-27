@@ -10,18 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
-import environ
-
-env = environ.Env()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-ENV_DIR = BASE_DIR / '.env'
 
-environ.Env.read_env(ENV_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -144,13 +137,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # EMAIL SETTINGS WITH SEND GRID
 
-
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 
-SENDGRID_SANDBOX_MODE_IN_DEBUG=False
-SENDGRID_ECHO_TO_STDOUT=True
-DEFAULT_FROM_EMAIL='drhelegah@st.ug.edu.gh'
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+SENDGRID_ECHO_TO_STDOUT = True
+DEFAULT_FROM_EMAIL = 'drhelegah@st.ug.edu.gh'
