@@ -1,7 +1,8 @@
 import os
-from sendgrid.helpers.mail import Mail
-from sendgrid import SendGridAPIClient
+
 from django.conf import settings
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 # update to your dynamic template id from the UI
 TEMPLATE_ID = 'd-57284dc5b6204b22b4e95d86075db174'

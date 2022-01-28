@@ -1,6 +1,7 @@
 from django.db.models import query
 from django.db.models.query_utils import Q
 from django.shortcuts import get_object_or_404, redirect, render
+
 from .models import Article
 
 

@@ -1,11 +1,12 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
-from .utils import SendDynamic
 from django.views import View
 
 from amexpert.forms import NewMemberForm
 from amexpert.models import Event, Post
+
+from .utils import SendDynamic
 
 
 class IndexView(View):
