@@ -1,6 +1,8 @@
 from django.shortcuts import render
+
 from blog.models import Article
-from . models import Project
+
+from .models import Project
 
 
 def index(request):

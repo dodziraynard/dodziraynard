@@ -91,24 +91,30 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return f"{self.id}. {self.title}"
-    
+
+
 class Member(models.Model):
-    PRONOUNS= [
-        ('Mr.', 'Mr.'),
-        ('Mrs.', 'Mrs.'),
-        ('Miss', 'Miss'),
-        ('Sir', 'Sir'),
-        ('Madam', 'Madam')
-    ]
+    PRONOUNS = [('Mr.', 'Mr.'), ('Mrs.', 'Mrs.'), ('Miss', 'Miss'),
+                ('Sir', 'Sir'), ('Madam', 'Madam')]
     fullname = models.CharField(max_length=200)
     email = models.EmailField(null=False, max_length=200)
-    photo = models.ImageField(null=True, upload_to= 'uploads/images/members', blank=True)
+    photo = models.ImageField(null=True,
+                              upload_to='uploads/images/members',
+                              blank=True)
     linkedin = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
     website = models.URLField(blank=True, null=True)
+    contact = models.CharField(max_length=20, blank=True, null=True)
     bio = CKEditor5Field(blank=True)
-    pronouns = models.CharField(max_length=100, null=True, blank=True, choices=PRONOUNS)
-    created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False,)
+    pronouns = models.CharField(max_length=100,
+                                null=True,
+                                blank=True,
+                                choices=PRONOUNS)
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        null=False,
+        blank=False,
+    )
     update_at = models.DateTimeField(auto_now=True, null=False)
     visible = models.BooleanField(default=True)
     slug = models.CharField(max_length=250)

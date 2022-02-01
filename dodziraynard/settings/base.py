@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_ckeditor_5',
     'crispy_forms',
-    "crispy_bootstrap5",
+    'crispy_bootstrap5',
     'blog.apps.BlogConfig',
     'website.apps.WebsiteConfig',
     'pages.apps.PagesConfig',
@@ -136,3 +136,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL SETTINGS WITH SEND GRID
+
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+SENDGRID_ECHO_TO_STDOUT = True
+DEFAULT_FROM_EMAIL = 'drhelegah@st.ug.edu.gh'

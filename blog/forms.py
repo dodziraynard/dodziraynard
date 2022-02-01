@@ -1,5 +1,6 @@
 from django import forms
-from .  models import Article
+
+from .models import Article
 
 
 class WalletForm(forms.ModelForm):

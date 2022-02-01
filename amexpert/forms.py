@@ -11,8 +11,9 @@ class NewMemberForm(forms.ModelForm):
             'email',
             'photo',
             'linkedin',
+            'contact',
             'github',
             'website',
             'bio',
-            'pronouns'
+            'pronouns',
         ]
