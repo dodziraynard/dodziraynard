@@ -5,4 +5,6 @@
 - Pronouns: He/Him 
 - Check out my community website: https://dodziraynard.me
 
+- I've started branching into technical writing. Follow me at : https://dodziraynard.medium.com/
+
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=dodziraynard&theme=shades-of-purple&hide_border=true)](https://git.io/streak-stats)
