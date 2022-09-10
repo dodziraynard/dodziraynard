@@ -6,6 +6,6 @@
 - Check out my community website: https://dodziraynard.me
 - Of late, I've been working on my technical writing skills ✨. Follow me at : https://dodziraynard.medium.com/
 
-![](https://komarev.com/ghpvc/?username=dodziraynard&style=blueviolet)
+- ![](https://komarev.com/ghpvc/?username=dodziraynard&style=blueviolet)
 
 [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=dodziraynard&theme=shades-of-purple&hide_border=true)](https://git.io/streak-stats)
