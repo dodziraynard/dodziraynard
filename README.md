@@ -1,6 +1,6 @@
 ### Hi 👋, Raynard 🤓 here
 
-- 🔭 I'm a CS major at the University of Ghana and also a GitHub Campus Expert.
+- 🔭 I'm a CS graduate who loves computer graphics & NLP
 - 📫 Let's connect on [LinkedIn](https://www.linkedin.com/in/dodziraynard).
 - Pronouns: He/Him 
 - Check out my passion project @ http://tryexplora.com/
